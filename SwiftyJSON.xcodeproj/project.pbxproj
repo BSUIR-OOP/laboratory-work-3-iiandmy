@@ -57,7 +57,6 @@
 			isa = PBXGroup;
 			children = (
 				9AC094DE283706E5006A63E6 /* Controller */,
-				9AC094DD283706DB006A63E6 /* View */,
 				9AC094DC283706C7006A63E6 /* Resources */,
 				9AC094DB283706B9006A63E6 /* BuildFiles */,
 			);
@@ -81,13 +80,6 @@
 				9AC094D2283704E6006A63E6 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		9AC094DD283706DB006A63E6 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		9AC094DE283706E5006A63E6 /* Controller */ = {
