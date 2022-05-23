@@ -17,9 +17,9 @@ class Transport: NSObject, Serializable {
     
     var name: String
     var maxSpeed: Int
-    var weight: Float
+    var weight: Double
     
-    fileprivate init(transportType: String, name: String, maxSpeed: Int, weight: Float) {
+    fileprivate init(transportType: String, name: String, maxSpeed: Int, weight: Double) {
         self.transportType = transportType
         self.name = name
         self.maxSpeed = maxSpeed
@@ -42,31 +42,31 @@ class Transport: NSObject, Serializable {
 }
 
 class SeaTransport: Transport {
-    init(name: String, maxSpeed: Int, weight: Float) {
-        super.init(transportType: "SeaTransport", name: name, maxSpeed: maxSpeed, weight: weight)
+    init(name: String, maxSpeed: Int, weight: Double) {
+        super.init(transportType: "Sea Transport", name: name, maxSpeed: maxSpeed, weight: weight)
     }
 }
 
 class RoadTransport: Transport {
-    init(name: String, maxSpeed: Int, weight: Float) {
-        super.init(transportType: "RoadTransport", name: name, maxSpeed: maxSpeed, weight: weight)
+    init(name: String, maxSpeed: Int, weight: Double) {
+        super.init(transportType: "Road Transport", name: name, maxSpeed: maxSpeed, weight: weight)
     }
 }
 
 class AirTransport: Transport {
-    init(name: String, maxSpeed: Int, weight: Float) {
-        super.init(transportType: "AirTransport", name: name, maxSpeed: maxSpeed, weight: weight)
+    init(name: String, maxSpeed: Int, weight: Double) {
+        super.init(transportType: "Air Transport", name: name, maxSpeed: maxSpeed, weight: weight)
     }
 }
 
 class HorseDrawnTransport: Transport {
-    init(name: String, maxSpeed: Int, weight: Float) {
-        super.init(transportType: "HorseDrawnTransport", name: name, maxSpeed: maxSpeed, weight: weight)
+    init(name: String, maxSpeed: Int, weight: Double) {
+        super.init(transportType: "Horse Drawn Transport", name: name, maxSpeed: maxSpeed, weight: weight)
     }
 }
 
 class NonMechanicalTransport: Transport {
-    init(name: String, maxSpeed: Int, weight: Float) {
-        super.init(transportType: "NonMechanicalTransport", name: name, maxSpeed: maxSpeed, weight: weight)
+    init(name: String, maxSpeed: Int, weight: Double) {
+        super.init(transportType: "Non-Mechanical Transport", name: name, maxSpeed: maxSpeed, weight: weight)
     }
 }
