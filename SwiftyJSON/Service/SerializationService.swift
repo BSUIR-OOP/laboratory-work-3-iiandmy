@@ -10,34 +10,16 @@ import UIKit
 class SerializationService {
     private init() {}
     
-    private let pattern = """
-    {
-        "type": ".+",
-        "body": {
-            "name": ".+",
-            "maxSpeed": [0-9]+,
-            "weight": [0-9]+[.][0-9]+
-        }
-    }
-    """
-    
     static func serialize(objects: [Serializable]) -> String {
-        var result = "[\n"
-        objects.forEach { object in
-            result += "\(object.serialize()),\n"
-        }
-        result += "]"
+        let serializer = JsonTransportSerializer()
+        let result = serializer.serialize(objects)
         
         return result
     }
     
-    static func deserialize(jsonString json: String) -> [Serializable]? {
-        var result = [Serializable]()
+    static func deserialize(jsonString json: String) -> Result {
+        let serializer = JsonTransportSerializer()
         
-        json.split(separator: "\n").forEach { entrance in
-            
-        }
-        
-        return result
+        return serializer.deserialize(json)
     }
 }

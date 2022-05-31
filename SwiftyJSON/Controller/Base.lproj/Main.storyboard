@@ -33,16 +33,28 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Entities" id="Zlv-fw-6O3">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="K9d-2P-Awk">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uhR-Qv-YdN">
-                                <rect key="frame" x="347" y="5" width="47" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
-                                <connections>
-                                    <segue destination="z7e-cR-RFr" kind="show" id="683-Wi-e2V"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem style="plain" id="K9d-2P-Awk">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="uhR-Qv-YdN">
+                                    <rect key="frame" x="347" y="5" width="47" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                                    <connections>
+                                        <segue destination="z7e-cR-RFr" kind="show" id="683-Wi-e2V"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="xZR-cJ-xi3">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="H8e-XM-akU">
+                                    <rect key="frame" x="291" y="5" width="48" height="34.333333333333336"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
+                                    <connections>
+                                        <action selector="clearButtonPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="n3F-2h-8On"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -327,6 +339,7 @@
         <image name="car.2" catalog="system" width="128" height="72"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="rectangle.grid.2x2" catalog="system" width="128" height="99"/>
+        <image name="trash" catalog="system" width="121" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

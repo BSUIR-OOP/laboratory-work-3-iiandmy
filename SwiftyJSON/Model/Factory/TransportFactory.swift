@@ -16,19 +16,19 @@ class TransportFactory {
     private var transport = [String: (String, Int, Double) -> Transport]()
     
     private init() {
-        transport["Sea Transport"] = { name, speed, weight in
+        transport["SeaTransport"] = { name, speed, weight in
             return SeaTransport(name: name, maxSpeed: speed, weight: weight)
         }
-        transport["Road Transport"] = { name, speed, weight in
+        transport["RoadTransport"] = { name, speed, weight in
             return RoadTransport(name: name, maxSpeed: speed, weight: weight)
         }
-        transport["Air Transport"] = { name, speed, weight in
+        transport["AirTransport"] = { name, speed, weight in
             return AirTransport(name: name, maxSpeed: speed, weight: weight)
         }
-        transport["Horse Drawn Transport"] = { name, speed, weight in
+        transport["HorseDrawnTransport"] = { name, speed, weight in
             return HorseDrawnTransport(name: name, maxSpeed: speed, weight: weight)
         }
-        transport["Non-Mechanical Transport"] = { name, speed, weight in
+        transport["Non-MechanicalTransport"] = { name, speed, weight in
             return NonMechanicalTransport(name: name, maxSpeed: speed, weight: weight)
         }
     }
@@ -38,7 +38,7 @@ class TransportFactory {
     }
     
     func getTransport(ofType type: String, withName name: String, speed: Int, weight: Double) throws -> Transport {
-        guard let result = transport[type] else { throw TransportFactoryError.invalidTransportType }
+        guard let result = transport[type.replacingOccurrences(of: " ", with: "")] else { throw TransportFactoryError.invalidTransportType }
         return result(name, speed, weight)
     }
 }
