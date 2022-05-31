@@ -32,6 +32,11 @@ class ViewEntitiesController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
+    @IBAction func clearButtonPressed() {
+        storage.transport.removeAll()
+        tableView.reloadData()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? AddEntityController else { return }
         destinationVC.delegate = self
