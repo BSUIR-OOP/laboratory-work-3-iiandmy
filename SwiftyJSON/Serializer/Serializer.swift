@@ -24,9 +24,14 @@ protocol Serializer {
 
 class JsonTransportSerializer: Serializer {
     private let symbolsToRemove = [" ", "\n", "[", "]", "\""]
+    private let symbolsToSkip = ["{", "}", ","]
+    private let allowedSymbols = ["-", "."]
     
     private var jsonString: String!
     private var token: (tokType: String, val: String)!
+    
+    private let typeKeyWord = "type"
+    private let bodyKeyWord = "body"
     
     private var endOfString: Bool = false
     private var currentIndex: String.Index! {
@@ -61,7 +66,7 @@ class JsonTransportSerializer: Serializer {
             return
         }
         let currenSymb = jsonString[currentIndex]
-        if (currenSymb == "{" || currenSymb == "," || currenSymb == "}") {
+        if (symbolsToSkip.contains(String(currenSymb))) {
             increaseIndex(for: 1)
             nextToken()
             return
@@ -70,10 +75,10 @@ class JsonTransportSerializer: Serializer {
             var id = parseWord()
             let value: String
             increaseIndex(for: 1)
-            if (id == "type") {
+            if (id == typeKeyWord) {
                 value = parseWord()
                 increaseIndex(for: 1)
-            } else if (id == "body") {
+            } else if (id == bodyKeyWord) {
                 increaseIndex(for: 1)
                 id = parseWord()
                 increaseIndex(for: 1)
@@ -89,10 +94,9 @@ class JsonTransportSerializer: Serializer {
     private func parseWord() -> String {
         var result = String(jsonString[currentIndex])
         increaseIndex(for: 1)
-        if (jsonString[currentIndex].isLetter ||
-            jsonString[currentIndex].isNumber ||
-            jsonString[currentIndex] == "-" ||
-            jsonString[currentIndex] == ".") {
+        let symb = jsonString[currentIndex]
+        if (symb.isLetter || symb.isNumber ||
+            allowedSymbols.contains(String(symb))) {
             
             result += parseWord()
         }
